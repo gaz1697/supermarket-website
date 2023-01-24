@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Products-Sallaty</title>
@@ -65,7 +64,7 @@
                             <div class="product-info-top">
                                 <h2 class="sm-title"><?php echo $row['Description']; ?></h2>
                             </div>
-                            <p class="product-name"><?php echo $row['Name']; ?></p>
+                            <a href="One Product.php?product_id=<?php echo $row['Product_id']; ?>" class="product-name"><?php echo $row['Name']; ?></a>
                             <p class="product-price">SAR <?php echo $row['Price']; ?></p>
                         </div>
                     </div>

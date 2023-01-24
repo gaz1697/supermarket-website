@@ -517,5 +517,37 @@ td img{
             right: 0;
             z-index: 1;
           }
-          
+          .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            width: 80%; /* add this if you want to limit the width of container */
+        }
+        
+        
+        .product-image {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        
+        .product-name-one {
+            text-align: center; 
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .product-description {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .product-price {
+            text-align: center; 
+            font-size: 24px;
+        }
+                  
         
