@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $order_id = $_GET['id']; ?>
+<?php $Order_id = $_GET['Order_id']; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -44,7 +44,7 @@
                         <h1>Product Name</h1>
                     </th>
                     <th>
-                        <h1>Description</h1>
+                        <h1>Category</h1>
                     </th>
                     <th>
                         <h1>Quantity</h1>
@@ -65,11 +65,11 @@
                     echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 }
                 //retrieve data from the database
-                $sql1 = "SELECT order_id FROM order_product WHERE order_id = $order_id";
+                $sql1 = "SELECT Order_id FROM order_product WHERE Order_id = $Order_id";
                 $result1 = mysqli_query($conn, $sql1);
                 while ($row1 = mysqli_fetch_assoc($result1)) {
-                    $order_id = $row1['order_id'];
-                    $sql = "SELECT product.Image,product.Name,product.Description,order_product.Quantity,product.Price FROM product INNER JOIN order_product ON product.Product_id = order_product.Product_id WHERE order_product.order_id = '$order_id'";
+                    $Order_id = $row1['Order_id'];
+                    $sql = "SELECT product.Image,product.Name,product.Category_name,order_product.Quantity,product.Price FROM product INNER JOIN order_product ON product.Product_id = order_product.Product_id WHERE order_product.order_id = '$Order_id'";
                     $result = mysqli_query($conn, $sql);
                 }
                 //loop through the result set and display the information
@@ -78,7 +78,7 @@
                     <tr>
                         <td><img class="product-image-Order" src="<?php echo $row['Image']; ?>"></td>
                         <td><?php echo $row['Name']; ?></td>
-                        <td><?php echo $row['Description']; ?></td>
+                        <td><?php echo $row['Category_name']; ?></td>
                         <td><?php echo $row['Quantity']; ?></td>
                         <td>SAR <?php echo $row['Price']; ?></td>
                         <td>SAR <?php echo $row['Price'] * $row['Quantity']; ?></td>

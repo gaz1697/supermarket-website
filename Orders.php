@@ -70,10 +70,10 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         while ($row = mysqli_fetch_assoc($result)) {
         ?>
           <tr>
-            <td><?php echo $row['id']; ?></td>
+            <td><?php echo $row['Order_id']; ?></td>
             <td>SAR <?php echo $row['Total_Price']; ?></td>
             <td><?php echo $row['order_date']; ?></td>
-            <td><a href="One Order.php?id=<?php echo $row['id'];?>"><button type="button" class="More-Information-btn"> More Information</button></a></td>
+            <td><a href="One Order.php?Order_id=<?php echo $row['Order_id'];?>"><button type="button" class="More-Information-btn"> More Information</button></a></td>
           </tr>
         <?php
         }

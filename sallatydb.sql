@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2023 at 04:31 PM
+-- Generation Time: Jan 25, 2023 at 08:20 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -39,23 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`Admin_id`, `Name`, `Email`, `Password`) VALUES
-(5, 'David Williams', 'david@example.com', 'password'),
-(6, 'Emily Brown', 'emily@example.com', 'password'),
-(7, 'James Smith', 'james@example.com', 'password'),
-(8, 'Sophia Johnson', 'sophia@example.com', 'password'),
-(9, 'Olivia Williams', 'olivia@example.com', 'password'),
-(10, 'Ava Brown', 'ava@example.com', 'password'),
-(11, 'Isabella Smith', 'isabella@example.com', 'password'),
-(12, 'Mia Johnson', 'mia@example.com', 'password'),
-(13, 'Abigail Williams', 'abigail@example.com', 'password'),
-(14, 'Emily Brown', 'emily@example.com', 'password'),
-(15, 'Charlotte Smith', 'charlotte@example.com', 'password'),
-(16, 'Harper Johnson', 'harper@example.com', 'password'),
-(17, 'Amelia Williams', 'amelia@example.com', 'password'),
-(18, 'Evelyn Brown', 'evelyn@example.com', 'password'),
-(19, 'Elizabeth Smith', 'elizabeth@example.com', 'password'),
-(20, 'Sofia Johnson', 'sofia@example.com', 'password'),
-(99, '123', '123', '123');
+(1, '123', '123', '123');
 
 -- --------------------------------------------------------
 
@@ -73,12 +57,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`Category_id`, `Name`) VALUES
-(5, 'MEAT & POULTRY'),
-(6, 'BISCUITS, CRACKERS & CAKES'),
-(7, 'ELECTRONICS & APPLIANCES'),
-(8, 'RICE, PASTA & PULSES'),
-(9, 'MILK & LABAN'),
-(10, 'WATER');
+(1, 'BISCUITS, CRACKERS & CAKES'),
+(2, 'ELECTRONICS & APPLIANCES'),
+(3, 'MEAT & POULTRY'),
+(4, 'MILK & LABAN'),
+(5, 'RICE, PASTA & PULSES'),
+(6, 'WATER');
 
 -- --------------------------------------------------------
 
@@ -87,18 +71,19 @@ INSERT INTO `category` (`Category_id`, `Name`) VALUES
 --
 
 CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
+  `Order_id` int(11) NOT NULL,
   `order_date` date NOT NULL,
-  `Total Price` int(255) NOT NULL
+  `Total_Price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `order_date`, `Total Price`) VALUES
-(1, '2023-01-25', 250),
-(2, '2023-01-19', 222);
+INSERT INTO `orders` (`Order_id`, `order_date`, `Total_Price`) VALUES
+(1, '2023-01-25', 620),
+(2, '2023-01-23', 238),
+(3, '2023-02-08', 161);
 
 -- --------------------------------------------------------
 
@@ -108,19 +93,21 @@ INSERT INTO `orders` (`id`, `order_date`, `Total Price`) VALUES
 
 CREATE TABLE `order_product` (
   `id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
+  `Order_id` int(11) NOT NULL,
   `Product_id` int(11) NOT NULL,
-  `Quantity` int(11) NOT NULL
+  `Quantity` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `order_product`
 --
 
-INSERT INTO `order_product` (`id`, `order_id`, `Product_id`, `Quantity`) VALUES
-(1, 1, 4, 3),
-(2, 1, 3, 1),
-(3, 2, 2, 5);
+INSERT INTO `order_product` (`id`, `Order_id`, `Product_id`, `Quantity`) VALUES
+(1, 1, 3, 2),
+(2, 1, 2, 1),
+(3, 2, 7, 1),
+(4, 3, 2, 5),
+(5, 3, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -131,25 +118,25 @@ INSERT INTO `order_product` (`id`, `order_id`, `Product_id`, `Quantity`) VALUES
 CREATE TABLE `product` (
   `Product_id` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `Price` decimal(10,2) NOT NULL,
-  `Description` text NOT NULL,
+  `Price` double NOT NULL,
+  `Description` varchar(255) NOT NULL,
   `Image` varchar(255) NOT NULL,
-  `Category_id` int(11) DEFAULT NULL
+  `Category_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`Product_id`, `Name`, `Price`, `Description`, `Image`, `Category_id`) VALUES
-(1, 'TANMIAH FRESH CHICKEN THIGHS', '10.00', 'CHICKEN', 'images/meat.png', 5),
-(2, 'OREO CLASSIC 38GX 16', '20.00', 'SWEET', 'images/Oreo.jpg', 6),
-(3, 'PHILIPS COFFE MAKER,HD7432/2', '300.00', 'COFFE TOOLS', 'images/PHILIPS COFFEE.jpg', 7),
-(4, 'AL WALIMAH STYLE INDIAN BASMATTI RICE LONGGRAIN 5KG', '45.00', 'FOOD', 'images/Rice.png', 8),
-(5, 'SAUDIA LONG LIFE FULL FAT MILK 1L X12 PIECES', '61.00', 'MILK', 'images/Saudi Milk.jpg', 9),
-(6, 'NOVA WATER 550ML X24', '20.00', 'WATER', 'images/Nova.jpg', 10),
-(7, 'Nikai NAF788A Air Fryer 3L', '238.00', 'ELECTRONICS & APPLIANCES', 'images/Fryer.jpg', 7),
-(8, 'Alyoum Premium Fresh Chicken Chilled 1kg', '19.00', 'MEAT & POULTRY', 'images/Chicken.jpg', 5);
+INSERT INTO `product` (`Product_id`, `Name`, `Price`, `Description`, `Image`, `Category_name`) VALUES
+(1, 'Tanmiah Fresh Chicken Thighs 450g', 10, 'Bla Bla', 'images/meat.png', 'MEAT & POULTRY'),
+(2, 'Oreo Classic 38g× 16', 20, 'Bla Bla', 'images/Oreo.jpg', 'BISCUITS, CRACKERS & CAKES'),
+(3, 'Philips coffee maker, HD7432/2', 300, 'BLA BLA', 'images/PHILIPS COFFEE.jpg', 'ELECTRONICS & APPLIANCES'),
+(4, 'Al Walimah Style Indian Basmati Rice Longgrain 5kg', 45, 'BLA BLA', 'images/Rice.png', 'RICE, PASTA & PULSES'),
+(5, 'Saudia Long Life Full Fat Milk 1L × 12 Pieces', 61, 'BLA BLA', 'images/Saudi Milk.jpg', 'MILK & LABAN'),
+(6, 'Nova Water 550ml ×24', 20, 'BLA BLA', 'images/Nova.jpg', 'WATER'),
+(7, 'Nikai NAF788A Air Fryer 3L', 238, 'BLA BLA', 'images/Fryer.jpg', 'ELECTRONICS & APPLIANCES'),
+(8, 'Alyoum Premium Fresh Chicken Chilled 1kg', 19, 'BLA BLA', 'images/Chicken.jpg', 'MEAT & POULTRY');
 
 --
 -- Indexes for dumped tables
@@ -165,20 +152,21 @@ ALTER TABLE `admin`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`Category_id`);
+  ADD PRIMARY KEY (`Category_id`),
+  ADD UNIQUE KEY `Name` (`Name`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`Order_id`);
 
 --
 -- Indexes for table `order_product`
 --
 ALTER TABLE `order_product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `order_id` (`order_id`),
+  ADD KEY `Order_id` (`Order_id`),
   ADD KEY `Product_id` (`Product_id`);
 
 --
@@ -186,23 +174,35 @@ ALTER TABLE `order_product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`Product_id`),
-  ADD KEY `Category_id` (`Category_id`);
+  ADD KEY `Category_name` (`Category_name`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `Admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `Category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -218,14 +218,14 @@ ALTER TABLE `product`
 -- Constraints for table `order_product`
 --
 ALTER TABLE `order_product`
-  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `order_product_ibfk_1` FOREIGN KEY (`Order_id`) REFERENCES `orders` (`Order_id`),
   ADD CONSTRAINT `order_product_ibfk_2` FOREIGN KEY (`Product_id`) REFERENCES `product` (`Product_id`);
 
 --
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`Category_id`) REFERENCES `category` (`Category_id`);
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`Category_name`) REFERENCES `category` (`Name`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

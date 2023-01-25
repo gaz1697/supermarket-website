@@ -45,6 +45,7 @@
             <div class="product-container">
                 <h1 class="product-name-one"><?php echo $product['Name']; ?></h1>
                 <img class="product-image" src="<?php echo $product['Image']; ?>" alt="<?php echo $product['Name']; ?>">
+                <p class="product-Category-name"><?php echo $product['Category_name']; ?></p>
                 <p class="product-description"><?php echo $product['Description']; ?></p>
                 <p class="product-price">Price: <?php echo $product['Price']; ?></p>
             </div>
