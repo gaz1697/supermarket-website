@@ -600,4 +600,9 @@ td img{
     left: 0;
     margin-left: 11%;
 }
+.chart {
+    width: 50%;
+    margin: auto;
+}
+
 

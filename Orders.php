@@ -71,7 +71,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         ?>
           <tr>
             <td><?php echo $row['id']; ?></td>
-            <td>SAR <?php echo $row['Total Price']; ?></td>
+            <td>SAR <?php echo $row['Total_Price']; ?></td>
             <td><?php echo $row['order_date']; ?></td>
             <td><a href="One Order.php?id=<?php echo $row['id'];?>"><button type="button" class="More-Information-btn"> More Information</button></a></td>
           </tr>

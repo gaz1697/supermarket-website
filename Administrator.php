@@ -260,7 +260,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         </div>
                         <h2>Revnue</h2>
 
-                        <a href="#">Go to Revnue</a>
+                        <a href="Revnue.php">Go to Revnue</a>
                     </div>
                     <div class="dashboard-box">
                         <div class="box-icon">
