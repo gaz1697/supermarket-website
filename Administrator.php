@@ -6,7 +6,6 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: login.php");
     exit;
 }
-//rest of your code
 ?>
 
 
@@ -270,7 +269,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         </div>
                         <h2>Orders</h2>
 
-                        <a href="#">Go to Orders</a>
+                        <a href="Orders.php">Go to Orders</a>
                     </div>
 
                 </div>

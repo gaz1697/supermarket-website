@@ -33,7 +33,7 @@
     </div>
     <!--Cart Items-->
     <div class="small-container">
-        <table>
+        <table class="Cart-Table">
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>

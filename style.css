@@ -68,7 +68,7 @@ p {
     margin: 25px 0;
 }
 
-.button {
+.Start_shopping {
     display: inline-block;
     background-color: #BFD7EA;
     padding: 8px 30px;
@@ -77,7 +77,7 @@ p {
     font-size: 38px;
 }
 
-.button:hover {
+.Start_shopping:hover {
     background-color: #565656;
 }
 
@@ -308,7 +308,7 @@ body {
    margin-left: 500px;
    margin-right: 500px;
 }
-table{
+.Cart-Table{
     width:100% ;
     border-collapse: collapse;
     
@@ -507,7 +507,7 @@ td img{
         margin-bottom: 77px;
         
        
-
+/*--- Header Script ---*/
       
         }
         .sticky {
@@ -517,15 +517,14 @@ td img{
             right: 0;
             z-index: 1;
           }
+          /*--- One Product ---*/
           .product-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: auto;
-            width: 80%; /* add this if you want to limit the width of container */
+            width: 80%; 
         }
-        
-        
         .product-image {
             width: 300px;
             height: 300px;
@@ -549,5 +548,56 @@ td img{
             text-align: center; 
             font-size: 24px;
         }
-                  
-        
+/*--- Display Orders ---*/
+.Display-Orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    padding: 50px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    margin-top: 30px;
+}
+.Table-Orders {
+    text-align: center;
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.More-Information-btn {
+    width: 100%;
+    height: 100%;
+    background-color: #ff523b;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px;
+}
+.More-Information-btn a {
+    text-decoration: none;
+    color: #000;
+}
+.Table-Orders th {
+    background-color: #ff523b;
+    color: #fff;
+}
+.Table-Orders td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.Table-Orders tr:nth-child(even){background-color: #f2f2f2;}
+.Table-Orders tr:hover {background-color: #ddd;}
+.Table-Orders th {
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #ff523b;
+    color: white;
+}
+.back-image {
+    position: absolute;
+    left: 0;
+    margin-left: 11%;
+}
+
