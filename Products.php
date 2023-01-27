@@ -56,7 +56,7 @@
                                 <img src="<?php echo $row['Image']; ?>" width="200px" height="200px">
                             </div>
                             <div class="product-btns">
-                                <a href="Cart.html"><button type="button" class="btn-cart"> add to cart</a>
+                                <a href="Cart.php"><button type="button" class="btn-cart"> add to cart</a>
                                 </button>
                             </div>
                         </div>

@@ -604,5 +604,10 @@ td img{
     width: 50%;
     margin: auto;
 }
+#map {
+    width: 500px;
+    height: 500px;
+}
+
 
 
