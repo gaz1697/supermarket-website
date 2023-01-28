@@ -548,7 +548,7 @@ td img{
             text-align: center; 
             font-size: 24px;
         }
-/*--- Display Orders ---*/
+/*--- Display Orders + Customers ---*/
 .Display-Orders {
     display: flex;
     flex-direction: column;
