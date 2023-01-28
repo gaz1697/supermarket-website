@@ -142,7 +142,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
                         <div class="add-product-form-col">
                             <label for="phone">Phone</label>
-                            <input type="text" name="phone" id="phone" placeholder="Enter your Phone" pattern="^\+966\d{9}$" title="Please enter a valid Saudi Arabia phone number starting with +966">
+                            <input type="text" name="phone" id="phone" placeholder="Enter your Phone" pattern="^\+966\d{8}$" title="Please enter a valid Saudi Arabia phone number starting with +966">
                         </div>
                     </div>
                     <div class="add-product-form-row">
