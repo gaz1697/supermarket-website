@@ -248,7 +248,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         </div>
                         <h2>Customers</h2>
 
-                        <a href="#">Go to Customers</a>
+                        <a href="Customers.php">Go to Customers</a>
                     </div>
 
                 </div>
