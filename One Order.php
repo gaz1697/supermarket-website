@@ -34,9 +34,9 @@
     <!--Display Orders-->
     <div class="Display-Orders">
         <a href="<?php
-                    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                    if (isset($_SESSION['logged_in'])) {
                         echo "Orders.php";
-                    } else if (isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] == true) {
+                    } else if (isset($_SESSION['logged_in_user'])) {
                         echo "Customers Orders.php";
                     }
                     ?>" class="back-image"><img src="images/double arrow.png" width="50px" height="50px"></a>
