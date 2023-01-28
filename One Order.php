@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php $Order_id = $_GET['Order_id']; ?>
+<?php session_start(); $Order_id = $_GET['Order_id']; ?>
 
 <head>
     <meta charset="UTF-8">
@@ -26,14 +26,20 @@
                         <li><a href="Administrator.php">Administrator</a></li>
                     </ul>
                 </nav>
-                <a href="Cart.html"><img src="images/Cart.png" width="50px" height="50px"></a>
+                <a href="Cart.php"><img src="images/Cart.png" width="50px" height="50px"></a>
             </div>
         </div>
     </div>
     </div>
     <!--Display Orders-->
     <div class="Display-Orders">
-    <a href="Orders.php" class="back-image"><img src="images/double arrow.png" width="50px" height="50px"></a>
+        <a href="<?php
+                    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+                        echo "Orders.php";
+                    } else if (isset($_SESSION['logged_in_user']) && $_SESSION['logged_in_user'] == true) {
+                        echo "Customers Orders.php";
+                    }
+                    ?>" class="back-image"><img src="images/double arrow.png" width="50px" height="50px"></a>
         <table class="Table-Orders">
             <thead>
                 <tr>

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (!isset($_SESSION['logged_in_user']) || $_SESSION['logged_in_user'] !== true) {
+    header("Location: Phone Check.php");
+    exit;
+}
+?>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Products-Sallaty</title>
@@ -21,13 +27,13 @@
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="Products.html">Products</a></li>
+                        <li><a href="Products.php">Products</a></li>
                         <li><a href="Contact.html">Contact us</a></li>
-                        <li><a href="Administrator.html">Administrator</a></li>
-                        <li><a href="Account.html">Account</a></li>
+                        <li><a href="Customers Orders.php">Previous Orders</a></li>
+                        <li><a href="Administrator.php">Administrator</a></li>
                     </ul>
                 </nav>
-                <a href="Cart.html"><img src="images/Cart.png" width="50px" height="50px"></a>
+                <a href="Cart.php"><img src="images/Cart.png" width="50px" height="50px"></a>
             </div>
         </div>
     </div>
