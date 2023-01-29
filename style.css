@@ -44,7 +44,9 @@ p {
     padding-left: 25px;
     padding-right: 25px;
 }
-
+.body-color {
+    background-color: #b26a3e;
+    }
 .row {
     display: flex;
     align-items: center;

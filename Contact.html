@@ -14,7 +14,7 @@
 <title> Contact us </title>
 <link rel="stylesheet" href="style.css">
 
-<body>
+<body class="body-color">
     <div class="header" id="myHeader">
         <div class="container">
             <div class="navbar">
@@ -31,31 +31,42 @@
                 </nav>
                 <a href="Cart.php"><img src="images/Cart.png" width="50px" height="50px"></a>
             </div>
-            <div class="row">
-                <div class="col-2">
-                    <h1>Thank you for visiting our website. If you have any questions or comments, we would love to hear
-                        from you! </h1>
-                    <p> Phone: 555-555-5555 </p>
-                    <p> Email:info@sallatysupermarket.com </p>
-                    <p> Customer service: </p>
-                    <p> For questions about orders or returns, please contact our customer service team at </p>
-                    <p> customerservice@sallatysupermarket.com or 555-555-5556 </p>
-                    <p> Follow us on social media: </p>
-                    <p> Facebook: facebook.com/sallatysupermarket </p>
-                    <p> Instagram: instagram.com/sallatysupermarket </p>
-                    <p> Twitter: twitter.com/sallatysupermarket </p>
-                </div>
-                <div class="col-2">
-                    <img src="images/assorted-fruits-on-brown-wooden-racks-1.jpg">
-                </div>
-            </div>
-            <h1>Shop Location in google map</h1>
-            <div id="map"></div>
-            <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvjaiSpgO6mjHxPtOHdGEHVNqnav3zuGU&callback=initMap">
-        </script>
-        </div>  
+        </div>
     </div>
-</body>
+    <div class="row-contcat">
+        <div class="col-2-row-contcat">
+            <h1>Thank you for visiting our website. If you have any questions or comments, we would love to hear
+                from you! </h1>
+            <p> Phone: 555-555-5555 </p>
+            <p> Email:info@sallatysupermarket.com </p>
+            <p> Customer service: </p>
+            <p> For questions about orders or returns, please contact our customer service team at </p>
+            <p> customerservice@sallatysupermarket.com or 555-555-5556 </p>
+            <p> Follow us on social media: </p>
+            <p> Facebook: facebook.com/sallatysupermarket </p>
+            <p> Instagram: instagram.com/sallatysupermarket </p>
+            <p> Twitter: twitter.com/sallatysupermarket </p>
+        </div>
+        <h1>Shop Location in google map</h1>
+        <div id="map"></div>
+    </div>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvjaiSpgO6mjHxPtOHdGEHVNqnav3zuGU&callback=initMap">
+        </script>
 
+</body>
+<script>
+    window.onscroll = function () { myFunction() };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
 </html>
