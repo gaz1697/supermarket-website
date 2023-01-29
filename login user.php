@@ -56,7 +56,7 @@ mysqli_close($conn);
         </div>
     </div>
     <div class="account">
-        <form action="Phone Check.php" method="post" class="form" onsubmit="return validateForm()">
+        <form action="login user.php" method="post" class="form" onsubmit="return validateForm()">
             <h2>Login</h2>
             <label for="loginPhone">Phone</label>
             <div class="input-group">
