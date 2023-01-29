@@ -11,7 +11,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Login-Sallaty</title>
+    <title>Administrator-Sallaty</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
                         </div>
                         <h2>Products</h2>
 
-                        <a href="#">Go to Products</a>
+                        <a href="adminProducts.php">Go to Products</a>
                     </div>
                     <div class="dashboard-box">
                         <div class="box-icon">
