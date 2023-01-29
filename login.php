@@ -27,7 +27,7 @@ if (isset($_POST['loginUser']) && isset($_POST['loginPassword'])) {
     $_SESSION['username'] = $user['username'];
     header("Location: Administrator.php");
   } else {
-    echo "Invalid username or password";
+    echo "<script>alert('Invalid username or password');</script>";
   }
 }
 

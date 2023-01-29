@@ -27,7 +27,7 @@ if (isset($_POST['loginPhone'])) {
         $_SESSION['phone'] = $user['phone'];
         header("Location: Products.php");
     } else {
-        echo "Invalid phone number you have to register first";
+        echo "<script>alert('Invalid phone number you have to register first');</script>";
     }
 }
 
@@ -51,7 +51,7 @@ mysqli_close($conn);
                         <li><a href="Administrator.php">Administrator</a></li>
                     </ul>
                 </nav>
-                <a href="Cart.html"><img src="images/Cart.png" width="50px" height="50px"></a>
+                <a href="Cart.php"><img src="images/Cart.png" width="50px" height="50px"></a>
             </div>
         </div>
     </div>

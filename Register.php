@@ -102,7 +102,7 @@
                         <li><a href="Administrator.php">Administrator</a></li>
                     </ul>
                 </nav>
-                <a href="Cart.html"><img src="images/Cart.png" width="50px" height="50px"></a>
+                <a href="Cart.php"><img src="images/Cart.png" width="50px" height="50px"></a>
             </div>
         </div>
     </div>
