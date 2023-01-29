@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html>
+<?php
+// check if user is logged in
+session_start();
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+?>
 <head>
     <meta charset="UTF-8">
     <title>Products-Sallaty</title>
@@ -32,35 +41,15 @@
     <div class="products">
         <div class="container">
             <h1 class="lg-title">Sallaty products</h1>
-            <p class="text-light">We offer a wide selection of fresh produce, meats, pantry staples, and household
-                essentials.</p>
+            <form action="productsDeleted.php" method="POST" enctype="multipart/form-data">
+            <div class="edit-products">
+                <a href="addProduct.php"><button type="button" class="btn-add">Add Product</button></a>
+                <a href="DeleteProduct.php"><input type="submit" value="Delete Product"> </a>
+            </div>
 
             <div class="product-items">
                 <!-- product -->
                 <?php
-                SESSION_START();
-                if(!isset($_SESSION['cart'])){
-                    $_SESSION['cart'] = array();
-
-                }
-               
-                if(isset($_GET['pid'])){
-                    $pid = $_GET['pid'];
-                    $quan = $_GET['quantity'];
-
-                    if(!isset($_SESSION['cart'][$pid])){
-                        $_SESSION['cart'][$pid] = $quan;
-                        // return to the same page
-                        header("Location: Products.php");
-                    }
-                    else{
-                        $_SESSION['cart'][$pid] += $quan;
-                         // return to the same page
-                         header("Location: Products.php");
-                       
-                    }
-                }
-                
                 //connect to database
                 $conn = mysqli_connect("localhost", "root", "", "sallatydb");
                 if (mysqli_connect_errno()) {
@@ -78,29 +67,24 @@
                             <div class="product-img">
                                 <img src="<?php echo $row['Image']; ?>" width="200px" height="200px">
                             </div>
-                            <div class="product-btns">
-                                <form action="<?php filter_input(INPUT_SERVER, 'PHP_SELF', FILTER_SANITIZE_URL) ?>" >
-                                    <input type="hidden" name="pid" id="pid" value="<?php echo $row['Product_id']; ?>">
-                                    <input type="number" name="quantity" id="quantity" value="1" min="1" max="10000">
-                                    <button type="submit" class="btn-cart" > add to cart</button>
-                                </form>
-                                
+                            <div class="admin-product-btns">
+                            <a style="text-align:center;  " href="editProduct.php?product_id=<?php echo $row['Product_id']; ?>" class="btn-cart">Edit</a>
                             </div>
                         </div>
                         <div class="product-info">
                             <div class="product-info-top">
-                                <h2 class="sm-title"><?php echo $row['Category_name']; ?></h2>
+                                <h2 class="sm-title"><?php echo $row['Description']; ?></h2>
                             </div>
                             <a href="One Product.php?product_id=<?php echo $row['Product_id']; ?>" class="product-name"><?php echo $row['Name']; ?></a>
-                            <p class="product-price">SAR <?php echo $row['Price']; ?></p>
+                            <p class="product-price">SAR <?php echo $row['Price']; ?></p> <input type="checkbox" id=<?php echo $row['Name'] ?> name="delete[]" value=<?php echo $row['Product_id'] ?>>
                         </div>
                     </div>
                 <?php
                 }
                 mysqli_close($conn);
-                
                 ?>
             </div>
+            </form>
         </div>
     </div>
     <script>
@@ -110,7 +94,7 @@
 
         var header = document.getElementById("myHeader");
         var sticky = header.offsetTop;
-
+        
         function myFunction() {
             if (window.pageYOffset > sticky) {
                 header.classList.add("sticky");
